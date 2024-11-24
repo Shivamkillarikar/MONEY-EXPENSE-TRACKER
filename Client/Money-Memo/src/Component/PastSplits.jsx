@@ -8,7 +8,7 @@ const PastSplits = () => {
     // Fetch past splits when the component is mounted
     const fetchPastSplits = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/past-splits');
+        const response = await axios.get('https://money-expense-tracker-d1ye.onrender.com/api/past-splits');
         setPastSplits(response.data);
       } catch (error) {
         console.error('Error fetching past splits:', error);
