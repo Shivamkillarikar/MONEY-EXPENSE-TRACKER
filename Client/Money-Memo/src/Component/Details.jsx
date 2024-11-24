@@ -53,7 +53,7 @@ const Details = () => {
 
     try {
       // Send form data to backend
-      await axios.post('http://localhost:5000/api/split', formData);
+      await axios.post('https://money-expense-tracker-d1ye.onrender.com/api/split', formData);
       alert('Split Saved!');
      // navigate('/past-splits');
     } catch (error) {
