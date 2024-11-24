@@ -6,11 +6,8 @@ const budgetRoutes = require('./Routes/budgetRoutes')
 const TrackerRoue=require("./Routes/trackerRoue");
 const expenseRoutes=require('./Routes/expenseRoutes')
 require("dotenv").config()
-const { Twilio } = require('twilio');
-const accountSid = 'AC8b5f07e668bdffc0d3960983b747a30f';
-const authToken = 'dde1231e2d1cf0e04e89c27e4946d506';
-const client = new Twilio(accountSid, authToken);
-const Expense= require("./Models/Expense");
+
+
 
 // Initialize app
 const app = express();
@@ -26,36 +23,6 @@ mongoose.connect('mongodb://localhost:27017/splikaro', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
-
-app.post('/api/expenses', async (req, res) => {
-    console.log('Received data:', req.body); // Log the received data
-    const { name, amount, category, date, phoneNumber } = req.body;
-
-    // Validate input
-    if (!name || !amount || !category) {
-        return res.status(400).json({ message: 'Name, amount, and category are required.' });
-    }
-    
-    try {
-        const newExpense = new Expense({ name, amount, category, date });
-        await newExpense.save();
-
-        // Send SMS notification
-        if (phoneNumber) {
-            await client.messages.create({
-                body: `New expense added: ${name} - ₹${amount} (${category})`,
-                from: '+16302803248', // Your Twilio number
-                to: phoneNumber,
-            });
-        }
-
-        res.status(201).json(newExpense);
-    } catch (error) {
-        console.error('Error saving expense:', error);
-        res.status(500).json({ message: 'Error adding expense' });
-    }
-});
-
 
 //const mongoose = require('mongoose');
 
