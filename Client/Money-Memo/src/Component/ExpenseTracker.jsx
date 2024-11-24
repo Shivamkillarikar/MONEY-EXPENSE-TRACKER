@@ -42,6 +42,7 @@ const ExpenseTracker = () => {
         };
 
         try {
+<<<<<<< HEAD
             if (editId) {
                 await axios.put(`${API_URL}/${editId}`, newExpense);
                 setExpenses(expenses.map(expense => (expense._id === editId ? { ...expense, ...newExpense } : expense)));
@@ -49,6 +50,18 @@ const ExpenseTracker = () => {
             } else {
                 const response = await axios.post(API_URL, newExpense);
                 setExpenses([...expenses, response.data]);
+=======
+            const response = await fetch('https://money-expense-tracker-d1ye.onrender.com/api/expenses', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(expenseData),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+>>>>>>> 10e65aa039cc064f3485692d638fb67ef10e301c
             }
             resetForm();
         } catch (error) {
