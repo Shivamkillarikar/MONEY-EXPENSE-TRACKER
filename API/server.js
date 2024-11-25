@@ -38,7 +38,9 @@ mongoose.connect('mongodb://localhost:27017/splikaro', {
 //   console.error('MongoDB connection error:', err);
 // });
 
-
+app.get("/",(req,res)=>{
+    res.send("Hello world!")
+})
 
 
 
