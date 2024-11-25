@@ -13,14 +13,15 @@ A modern and user-friendly app to track expenses and split bills with ease. Buil
 - **Other**: [Any libraries, APIs, tools used]
 
 ## Screenshots
+
+### Register/Signup Page
+
+
 ### Expense Tracker
-![Expense Tracker Screenshot](docs/screenshots/expense-tracker.png)
+
 
 ### Bill Splitting
-![Bill Splitting Screenshot](docs/screenshots/bill-splitting.png)
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/money-expense-tracker.git
+
+
 
