@@ -33,25 +33,3 @@
 
 
 
-// /api/budget.js
-const { createOrUpdateBudget, getBudget } = require('../../controllers/budgetController');
-const { connectToDatabase } = require('../../db');  // MongoDB connection helper
-
-module.exports = async (req, res) => {
-  // Ensure that the database is connected before performing any operation
-  await connectToDatabase();
-
-  if (req.method === 'POST') {
-    // Handle POST request to create or update the budget
-    return createOrUpdateBudget(req, res);
-  }
-
-  if (req.method === 'GET') {
-    // Handle GET request to fetch the budget by email
-    return getBudget(req, res);
-  }
-
-  // If the method is not POST or GET, return Method Not Allowed
-  res.status(405).json({ message: 'Method Not Allowed' });
-};
-
