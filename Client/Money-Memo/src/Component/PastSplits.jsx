@@ -8,7 +8,7 @@ const PastSplits = () => {
     // Fetch past splits when the component is mounted
     const fetchPastSplits = async () => {
       try {
-        const response = await axios.get('https://met-gaf5.onrender.com/api/past-splits');
+        const response = await axios.get('https://met55.onrender.com/api/past-splits');
         setPastSplits(response.data);
       } catch (error) {
         console.error('Error fetching past splits:', error);
