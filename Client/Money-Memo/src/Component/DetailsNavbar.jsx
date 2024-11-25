@@ -13,7 +13,7 @@ const DetailsNavbar = () => {
               Overview
             </button>
           </Link> */}
-          <Link to="/" className="text-gray-700 hover:text-blue-600 transition duration-300">
+          <Link to="/navbar" className="text-gray-700 hover:text-blue-600 transition duration-300">
             <button className="px-4 py-2 font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
               Back
             </button>

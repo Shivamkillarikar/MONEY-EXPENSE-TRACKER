@@ -14,7 +14,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://money-expense-tracker-d1ye.onrender.com/api/users/register', formData);
+      const response = await axios.post('http://localhost:5000/api/users/register', formData);
       alert(response.data.message);
       navigate('/login');
     } catch (error) {

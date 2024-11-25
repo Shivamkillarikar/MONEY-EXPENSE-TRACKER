@@ -1,10 +1,6 @@
-
-
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ExpenseTrackerNavbar from './ExpenseTrackerNavbar';
-import ExpenseChart from './ExpenseChart';
-import { Link } from 'react-router-dom';
 
 const API_URL = 'http://localhost:5000/api/expenses';
 
@@ -32,7 +28,7 @@ const ExpenseTracker = () => {
             return;
         }
 
-        const finalCategory = category === 'Other' ? customCategory : category;
+        const finalCategory = category === 'Other' ? customCategory : category; // Use custom category if "Other" is selected
 
         const newExpense = {
             name,
@@ -42,7 +38,6 @@ const ExpenseTracker = () => {
         };
 
         try {
-<<<<<<< HEAD
             if (editId) {
                 await axios.put(`${API_URL}/${editId}`, newExpense);
                 setExpenses(expenses.map(expense => (expense._id === editId ? { ...expense, ...newExpense } : expense)));
@@ -50,18 +45,6 @@ const ExpenseTracker = () => {
             } else {
                 const response = await axios.post(API_URL, newExpense);
                 setExpenses([...expenses, response.data]);
-=======
-            const response = await fetch('https://money-expense-tracker-d1ye.onrender.com/api/expenses', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(expenseData),
-            });
-    
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
->>>>>>> 10e65aa039cc064f3485692d638fb67ef10e301c
             }
             resetForm();
         } catch (error) {
@@ -82,7 +65,7 @@ const ExpenseTracker = () => {
         setName(expense.name);
         setAmount(expense.amount);
         setCategory(expense.category);
-        setCustomCategory(expense.category === 'Other' ? expense.customCategory : ''); 
+        setCustomCategory(expense.category === 'Other' ? expense.customCategory : ''); // Set custom category if "Other"
         setDate(expense.date);
         setEditId(expense._id);
     };
@@ -96,38 +79,9 @@ const ExpenseTracker = () => {
         setEditId(null);
     };
 
-    // Logic to group expenses by category for chart
-    const getExpensesByCategory = () => {
-        const categories = ['Food', 'Transport', 'Entertainment', 'Other'];
-        return categories.map(category => {
-            return expenses
-                .filter(expense => expense.category === category)
-                .reduce((sum, expense) => sum + expense.amount, 0);
-        });
-    };
-
-    // Logic to group expenses by date for chart
-    const getExpensesByDate = () => {
-        const expensesByDate = {};
-        expenses.forEach(expense => {
-            const date = new Date(expense.date).toLocaleDateString();
-            if (expensesByDate[date]) {
-                expensesByDate[date] += expense.amount;
-            } else {
-                expensesByDate[date] = expense.amount;
-            }
-        });
-        return {
-            labels: Object.keys(expensesByDate),
-            data: Object.values(expensesByDate),
-        };
-    };
-
     return (
-        <>
-        <ExpenseTrackerNavbar />
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Expense Tracker</h1>
+            <ExpenseTrackerNavbar />
             <form onSubmit={handleSubmit} className="mb-4">
                 <input
                     type="text"
@@ -150,7 +104,7 @@ const ExpenseTracker = () => {
                     onChange={(e) => {
                         setCategory(e.target.value);
                         if (e.target.value !== 'Other') {
-                            setCustomCategory('');
+                            setCustomCategory(''); // Clear custom category if not 'Other'
                         }
                     }}
                     required
@@ -162,7 +116,7 @@ const ExpenseTracker = () => {
                     <option value="Entertainment">Entertainment</option>
                     <option value="Other">Other</option>
                 </select>
-                {category === 'Other' && (
+                {category === 'Other' && ( // Show custom category input if 'Other' is selected
                     <input
                         type="text"
                         value={customCategory}
@@ -184,20 +138,7 @@ const ExpenseTracker = () => {
                 >
                     {editId ? 'Update Expense' : 'Add Expense'}
                 </button>
-                <Link to="/tracker/charts">
-                <button className="bg-blue-600 text-white px-4 py-2 rounded mt-4">
-                    View Charts
-                </button>
-            </Link>
             </form>
-            
-
-            <ExpenseChart
-                expenses={expenses}
-                expensesByCategory={getExpensesByCategory()}
-                expensesByDate={getExpensesByDate()}
-            />
-
             <div className="expense-table">
                 <table className="min-w-full border">
                     <thead>
@@ -239,8 +180,6 @@ const ExpenseTracker = () => {
                 </div>
             </div>
         </div>
-        
-        </>
     );
 };
 
