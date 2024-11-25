@@ -14,7 +14,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://met55.onrender.com/api/users/register', formData);
+      const response = await axios.post('https://met76.onrender.com/api/users/register', formData);
       alert(response.data.message);
       navigate('/login');
     } catch (error) {
