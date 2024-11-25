@@ -19,24 +19,24 @@ app.use('/api', expenseRoutes);
 app.use('/api/expenses', TrackerRoue);
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://shivam:shivam2212@cluster0.yyjlw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+// mongoose.connect("mongodb+srv://shivam:shivam2212@cluster0.yyjlw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// });
 
 //const mongoose = require('mongoose');
 
 // Connect to MongoDB
-// mongoose.connect(process.env.MONGO_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
-// .then(() => {
-//   console.log('MongoDB connected successfully!');
-// })
-// .catch((err) => {
-//   console.error('MongoDB connection error:', err);
-// });
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('MongoDB connected successfully!');
+})
+.catch((err) => {
+  console.error('MongoDB connection error:', err);
+});
 
 app.get("/",(req,res)=>{
     res.send("Hello world!")
