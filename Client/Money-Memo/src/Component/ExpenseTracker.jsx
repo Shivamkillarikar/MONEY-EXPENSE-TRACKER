@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ExpenseTrackerNavbar from './ExpenseTrackerNavbar';
 
-const API_URL = 'http://localhost:5000/api/expenses';
+const API_URL = 'https://met-gaf5.onrender.com/api/expenses';
 
 const ExpenseTracker = () => {
     const [expenses, setExpenses] = useState([]);
