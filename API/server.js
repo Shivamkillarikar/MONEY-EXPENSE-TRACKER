@@ -11,7 +11,7 @@ require("dotenv").config()
 
 // Initialize app
 const app = express();
-app.use(cors({ origin: 'https://met14.onrender.com' }));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.use('/api/budget', budgetRoutes);
