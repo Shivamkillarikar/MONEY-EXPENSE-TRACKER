@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PastSplits from "./Component/PastSplits";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; 
 import AuthForm from "./Component/AuthForm";
-import SetBudget from "./Component/setBudget";
+import SetBudget from "./Component/SetBudget";
 import ExpenseTracker from "./Component/ExpenseTracker";
 import Navbar from "./Component/Navbar";
 
