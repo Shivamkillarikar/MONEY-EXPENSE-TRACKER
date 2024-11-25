@@ -13,7 +13,7 @@ function App() {
         <div>
             <Router>
                 <Routes>
-                    <Route path="/auth" element={<AuthForm />} />
+                    <Route path="/" element={<AuthForm />} />
                     <Route path="/details" element={<Details />} />
                     <Route path="/past-splits" element={<PastSplits />} />
                     <Route path="/budget" element={<SetBudget />} />
