@@ -10,7 +10,7 @@ const SignOut = () => {
     sessionStorage.clear(); // Clear session if any
     
     // Redirect to the login page
-    navigate('/auth');
+    navigate('/');
   };
 
   return (
