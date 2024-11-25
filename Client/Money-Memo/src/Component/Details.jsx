@@ -53,7 +53,7 @@ const Details = () => {
 
     try {
       // Send form data to backend
-      await axios.post('https://met-gaf5.onrender.com/api/split', formData);
+      await axios.post('https://met55.onrender.com/api/split', formData);
       alert('Split Saved!');
      // navigate('/past-splits');
     } catch (error) {
