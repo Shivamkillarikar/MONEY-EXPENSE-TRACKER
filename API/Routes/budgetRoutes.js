@@ -1,5 +1,5 @@
 const express = require('express');
-const { createOrUpdateBudget, getBudget } = require('../controllers/budgetController');
+const { createOrUpdateBudget, getBudget } = require('../Controllers/budgetController');
 
 const router = express.Router();
 
