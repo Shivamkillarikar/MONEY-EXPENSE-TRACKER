@@ -1,8 +1,8 @@
 {
   "build": {
-    "src": "client/money-memo",
     "env": {
       "NPM_FLAGS": "--legacy-peer-deps"
     }
   }
 }
+
