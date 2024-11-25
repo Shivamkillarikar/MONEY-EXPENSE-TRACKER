@@ -9,7 +9,7 @@ const SetBudget = ({ setBudget }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/budget', { email, totalBudget });
+            const response = await axios.post('https://met-gaf5.onrender.com/api/budget', { email, totalBudget });
             setBudget(response.data); // Update the budget state
             alert('Budget saved successfully!');
         } catch (error) {
