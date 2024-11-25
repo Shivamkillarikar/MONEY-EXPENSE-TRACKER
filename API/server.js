@@ -19,7 +19,7 @@ app.use('/api', expenseRoutes);
 app.use('/api/expenses', TrackerRoue);
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://shivam:shivam2212@cluster0.mongodb.net/splitkaro?retryWrites=true&w=majority", {
+mongoose.connect("mongodb://shivam:shivam2212@cluster0.mongodb.net/splitkaro?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
