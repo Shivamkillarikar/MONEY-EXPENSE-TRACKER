@@ -27,10 +27,10 @@ const AuthForm = () => {
           alert('Passwords do not match');
           return;
         }
-        await axios.post('http://localhost:5000/api/register', formData);
+        await axios.post('https://met-gaf5.onrender.com/api/register', formData);
         alert('Registration Successful!');
       } else {
-        await axios.post('http://localhost:5000/api/login', {
+        await axios.post('https://met-gaf5.onrender.com/api/login', {
           email: formData.email,
           password: formData.password,
         });
